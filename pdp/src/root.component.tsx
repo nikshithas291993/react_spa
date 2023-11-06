@@ -1,0 +1,21 @@
+import { useEffect, useState } from "react";
+import { getProductById } from "../../product/src/api-helper/frontend/util";
+import ProductDetails from "./component/product/ProductDetail.js"
+export default function Root(props) {
+  const productId = props.productId; // Access productId as a prop
+  const [product,setProduct] = useState();
+    useEffect(() =>{
+      getProductById(productId)
+        .then((data) => setProduct(data.data.product))
+        .catch((err) =>console.log(err));
+    },[productId]);
+    
+    return (
+        <div>
+        { product ? (<section className="core">
+          <ProductDetails data={product}/>
+        </section>): (<p>Looding...</p>)}
+        </div>
+    
+    )
+}
