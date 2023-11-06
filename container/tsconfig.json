@@ -1,6 +1,6 @@
 {
   "extends": "ts-config-single-spa",
-  "files": ["src/sonata-root-config.ts"],
+  "files": ["src/sonata-root-config.js"],
   "compilerOptions": {
     "declarationDir": "dist"
   },

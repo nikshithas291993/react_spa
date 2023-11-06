@@ -7,21 +7,16 @@ export const signUpApi = async(data) =>{
         //"Access-Control-Allow-Origin": "http://localhost:3000/" ,
         //'x-rapidapi-host': 'localhost:8000',// Host header to identify domain, most likely without header request will throw 400 error
       };
-    const res = await axios({
-        url: 'http://localhost:8000/graphql',
-        method: 'post',
-        headers: header,
-        data: {
-         query: `mutation {
-            register(username: "${data.firstName}" , email: "${data.email}", password1 : "${data.password1}" ,password2 : "${data.password2}" ){
-                success
-                errors 
-                token 
-                refreshToken 
-                }
-            }`
-        }
-       });
+    const res = await axios.post("http://localhost:5000/adduser",{
+        user_id: data.user_id,
+        name: data.name,
+        email: data.email,
+        age: Number(data.age),
+        address: data.address,
+        phone: Number(data.phone),
+        password: data.password,
+        confirm_password: data.confirm_password
+    });
        const resdata = await res.data;
        console.log("data" + resdata);
        return resdata;
@@ -31,25 +26,10 @@ export const signInApi = async(data) =>{
     const header = {
         "Content-Type": "application/json",
         };
-    const res = await axios({
-        url: 'http://localhost:8000/graphql',
-        method: 'post',
-        headers: header,
-        data: {
-         query: `mutation {
-            tokenAuth(username: "${data.username}" , password : "${data.password}"){
-                success,
-                errors,
-                token,
-                refreshToken
-                user{
-                    username
-                    
-                }
-                }
-            }`
-        }
-       });
+    const res = await axios.post("http://localhost:5000/login",{
+        email: data.email,
+        password: data.password,
+    });
        const resdata = await res.data;
        console.log("data" + resdata);
        return resdata;

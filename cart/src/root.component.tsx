@@ -1,3 +1,9 @@
+import OrderContainer from "./component/OrderContainer.js"
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  return (
+    <div>
+      {/* Other content in your root component */}
+      <OrderContainer />
+    </div>
+  );
 }
