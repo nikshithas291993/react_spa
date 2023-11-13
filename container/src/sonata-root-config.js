@@ -19,7 +19,7 @@ const productId = window.location.pathname.split('/pdp/')[1];
 /*registerApplication({
   name: '@sonta/header',
   app: () => System.import('@sonta/header'),
-  activeWhen: ['/'], // or any condition for the footer
+  activeWhen: () => true, // or any condition for the footer
   customProps: {
     // Add custom props if needed
   },
@@ -66,7 +66,7 @@ registerApplication({
 registerApplication({
   name: '@sonata/footer',
   app: () => System.import('@sonata/footer'),
-  activeWhen: () => true, // Display footer on all pages
+  activeWhen: ['/'],// Display footer on all pages
   customProps: {
     // Add custom props if needed
   },

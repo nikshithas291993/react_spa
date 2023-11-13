@@ -1,20 +1,21 @@
 import React from "react";
 import SIgnUpForm from "./SignUpForm";
-import { signUpApi } from "../../../product/src/api-helper/frontend/util";
+import { signUpApi } from "../api-helper/frontend/util";
 import { useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
+import { useAuth } from '../../../container/src/AuthContext';
 const SignUpUser = () =>{
     const [message, setMessage] = useState(null);
     const [showMessage, setShowMessage] = useState(null);
     const[open, setOpen] = useState(false);
         const getFormdata = (data) =>{
-            console.log(data);
             signUpApi(data).then((value) =>{
                 console.log(value)
-                if(value.error){
+                if(!value.error){
                     setShowMessage(value.error)
                     setOpen(true)
                     setMessage(value.message)
+                    
                 }else{
                     setShowMessage(value.message)
                     setOpen(true)

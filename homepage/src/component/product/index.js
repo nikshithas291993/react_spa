@@ -1,6 +1,6 @@
 import { useTheme } from "@mui/material/styles"
 import { Container, Grid, useMediaQuery } from "@mui/material"
-import { getAllProduct } from "../../../../product/src/api-helper/frontend/util";
+import { getAllProduct } from "../../api-helper/frontend/util";
 import { useState , useEffect } from "react";
 import SingleProducts from "./SingleProduct";
 import SingleProductsDesktop from "./SingleProductDesktop";

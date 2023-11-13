@@ -1,15 +1,19 @@
+import { AuthProvider } from "./AuthContext.js"
+<AuthProvider>
 <main>
   
   <div id="content">
     <single-spa-router>
-      <!-- Homepage route -->
-      <!-- Product route -->
-      <application name="@sonta/header"></application>
+      <route path="/">
+        <application name="@sonta/header"></application>
+        <!-- Other routes and applications -->
+      </route>
       <route path="/product">
         <application name="@sonata/product"></application>
       </route>
-      <!-- PDP route -->
     </single-spa-router>
-  </div>
   
+  </div>
+
 </main>
+</AuthProvider>

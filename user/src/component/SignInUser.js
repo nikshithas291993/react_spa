@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import SignInForm from "./SignInForm";
 import { Alert, Snackbar } from "@mui/material";
-import { signInApi } from "../../../product/src/api-helper/frontend/util";
+import { signInApi } from "../api-helper/frontend/util";
 const SignInUser = () =>{
         const [message, setMessage] = useState(null);
         const [showMessage, setShowMessage] = useState(null);
         const[open, setOpen] = useState(false);
         const getFormdata = (data) =>{
-            console.log(data);
             signInApi(data).then((value) =>{
                 console.log(value)
-                if(value.error){
+                if(!value.error){
                     setShowMessage(value.error)
                     setOpen(true)
                     setMessage(value.message)

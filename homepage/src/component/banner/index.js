@@ -1,14 +1,14 @@
 import { useTheme } from "@mui/material/styles";
 import { Typography } from "@mui/material";
 import { BannerContainer, BannerContenet, BannerDiscription, BannerImage, BannerTitle } from "../../public/styles/banner";
-
+import banner1 from "../../public/Pictures/banner/banner1.jpg";
 function Banner( {books}){
     const theme = useTheme();
 
     return (
         <>
         <BannerContainer>
-            <BannerImage src="../../public/Pictures/banner/banner1.jpg" />
+            <BannerImage src={ banner1 } />
             <BannerContenet>
                 <Typography variant="h6">Huge Collection</Typography >
                 <BannerTitle variant="h2">New Product</BannerTitle>
