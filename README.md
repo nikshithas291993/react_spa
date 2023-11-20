@@ -1,5 +1,6 @@
 # react_spa
 This is React Microfrontendwhich is created using single spa and Material Ui
+This Application required Nodejs to be installed .
 Main Container app is created using below command
 npx create-single-spa --moduleType root-config --framework react
 
